@@ -46,4 +46,4 @@ jobs:
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/app_flask-aaron-edery:latest
             docker stop app_flask || true
             docker rm app_flask || true
-            docker run -d --name app_flask -p 3002:3002 ${{ secrets.DOCKERHUB_USERNAME }}/app_flask-aaron-edery:latest
+            docker run -d --name app_flask -p 3002:3000 ${{ secrets.DOCKERHUB_USERNAME }}/app_flask-aaron-edery:latest
