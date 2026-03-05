@@ -27,7 +27,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app_flask:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app_flask-aaron-edery:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             whoami
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/app_flask:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/app_flask-aaron-edery:latest
             docker stop app_flask || true
             docker rm app_flask || true
-            docker run -d --name app_flask -p 8000:8000 ${{ secrets.DOCKERHUB_USERNAME }}/app_flask:latest
+            docker run -d --name app_flask -p 3002:3002 ${{ secrets.DOCKERHUB_USERNAME }}/app_flask-aaron-edery:latest
